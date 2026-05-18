@@ -1,0 +1,49 @@
+[user]
+	name = Dhiraj Basukala
+	email = dhiraj.basukala@gmail.com
+[alias]
+	f = fetch --prune --all
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	df = diff
+	bl = blame
+  rb = rebase
+    # show line stats e.g. git linez origin/main
+    linez = diff --shortstat
+    current = rev-parse --abbrev-ref HEAD
+    todo =  !CURRENT=$(git current) && git diff main..batch-payouts-mock -U | grep -h "^+.*TODO"
+    remote-diff = !CURRENT=$(git current) && git diff $CURRENT..$1/$CURRENT
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lr = log --raw
+        s = status
+#    z = git status -s  | fzf --no-sort --reverse  --preview 'git diff --color=always {+2} | diff-so-fancy'  --bind=ctrl-j:preview-down --bind=ctrl-k:preview-up  --preview-window=right:60%:wrap
+        sw = switch -
+        br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+        f = fetch --all --prune
+        alias = config --get-regexp ^alias\\.
+        sl = shortlog -ns
+    # search for code in commits - https://opensource.com/article/20/11/git-aliases
+        se = !git rev-list --all | xargs git grep -F
+        next = "!git checkout $(git rev-list --topo-order HEAD..main | tail -1) && echo \"\\033[1;33m$(git log -1 --pretty=%B)\\033[0m\""
+        first = "!git rev-list --max-parents=0 HEAD | xargs git checkout && echo \"\\033[1;33m$(git log -1 --pretty=%B)\\033[0m\""
+        prev = "!git checkout HEAD^ && echo \"\\033[1;33m$(git log -1 --pretty=%B)\\033[0m\""
+    main = "!git fetch --all --prune && git branch --contains origin/main"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@github.com:lfsgroup/"]
+	insteadOf = https://github.com/lfsgroup/
+[safe]
+	directory = .
+	directory = /Users/dhirajbasukala/work/fw-verify
+	directory = /Users/dhirajbasukala/work/learn/collage
+	directory = /Users/dhirajbasukala/work/papi
+[pull]
+	rebase = true

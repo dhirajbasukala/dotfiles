@@ -1,0 +1,12 @@
+gui:
+  # Optional: Shrinks the left sidebar list to give the side-by-side view more room
+  sidePanelWidth: 0.2
+  # 'normal' | 'half' | 'full' — full makes the focused panel use the entire terminal
+  screenMode: full 
+
+git:
+  paging:
+    colorArg: always
+    # Tells lazygit to use delta to split your view into two columns
+    pager: delta --dark --side-by-side --paging=never 
+
