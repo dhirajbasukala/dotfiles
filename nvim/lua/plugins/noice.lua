@@ -1,0 +1,12 @@
+-- Fix: noice.nvim cmdline crashes with Neovim 0.12.x dev builds
+-- Workaround: disable the cmdline UI entirely (falls back to native cmdline)
+-- See: https://github.com/folke/noice.nvim/issues/920
+-- return {
+--   "folke/noice.nvim",
+--   opts = {
+--     cmdline = {
+--       enabled = false,
+--     },
+--   },
+-- }
+return {}
