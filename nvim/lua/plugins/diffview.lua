@@ -2,7 +2,7 @@ return {
   "sindrets/diffview.nvim",
   keys = {
     {
-      "<leader>df", -- Example keymap (space + g + d)
+      "<leader>df", -- Example keymap (space + d + f)
       function()
         if next(require("diffview.lib").views) == nil then
           vim.cmd("DiffviewOpen")
