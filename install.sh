@@ -15,6 +15,11 @@ symlink "zsh/zshrc" ".zshrc"
 symlink "zsh/zprofile" ".zprofile"
 symlink "zsh/p10k.zsh" ".p10k.zsh"
 symlink "git/gitconfig" ".gitconfig"
+if [ ! -d "$HOME/.nvim"]; then
+  git clone git@github.com:dhirajbasukala/.nvim.git "$HOME/.nvim"
+if 
+ln -sfn "$HOME/.nvim" "$HOME/.config/nvim"
+echo "  linked $HOME/.config/nvim -> $HOME/.nvim"
 symlink "nvim" ".config/nvim"
 symlink "tmux/tmux.conf" ".tmux.conf"
 symlink "aerospace/aerospace.toml" ".aerospace.toml"
