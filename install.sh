@@ -20,11 +20,6 @@ if [ ! -d "$HOME/.nvim" ]; then
 fi
 ln -sfn "$HOME/.nvim" "$HOME/.config/nvim"
 echo "  linked $HOME/.config/nvim -> $HOME/.nvim"
-symlink "tmux/tmux.conf" ".tmux.conf"
-symlink "tmux/bin/tmux-sessionizer" ".local/bin/tmux-sessionizer"
-symlink "tmux/bin/tmux-windowizer" ".local/bin/tmux-windowizer"
-symlink "tmux/bin/tmux-session-lister" ".local/bin/tmux-session-lister"
-symlink "tmux/tmux-sessionizer.conf" ".config/tmux-sessionizer/tmux-sessionizer.conf"
 if [ "$(uname)" = "Darwin" ]; then
   symlink "aerospace/aerospace.toml" ".aerospace.toml"
 fi
